@@ -58,7 +58,7 @@ export default function TrustBar() {
   ];
 
   return (
-    <section className="bg-sage py-14 sm:py-18" ref={containerRef}>
+    <section className="bg-sage py-16 sm:py-20" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 sm:gap-y-12 gap-x-6 sm:gap-x-8">
           {stats.map((stat, index) => {

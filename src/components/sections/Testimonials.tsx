@@ -149,13 +149,13 @@ export default function Testimonials() {
                   </p>
                   
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden mb-3 sm:mb-4 relative ring-2 ring-cream-dark">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden mb-3 sm:mb-4 relative ring-2 ring-cream-dark">
                       <Image 
                         src={testimonials[currentIndex].photo} 
                         alt={`${testimonials[currentIndex].name} - ${testimonials[currentIndex].procedure} patient`}
                         fill
                         className="object-cover"
-                        sizes="72px"
+                        sizes="(max-width: 639px) 64px, 80px"
                       />
                     </div>
                     <h4 className="font-display font-bold text-lg sm:text-xl text-sage">{testimonials[currentIndex].name}</h4>

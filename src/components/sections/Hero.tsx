@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen pt-28 sm:pt-32 pb-20 sm:pb-28 flex items-center bg-gradient-to-b from-cream to-cream-dark overflow-hidden"
+      className="relative min-h-screen pt-28 sm:pt-32 pb-20 sm:pb-24 flex items-center bg-gradient-to-b from-cream to-cream-dark overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">

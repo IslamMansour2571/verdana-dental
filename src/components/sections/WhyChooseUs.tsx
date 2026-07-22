@@ -93,14 +93,14 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-cream w-full relative">
       {/* Mobile view */}
-      <div className="lg:hidden px-4 sm:px-6 py-16 sm:py-20 flex flex-col gap-12 sm:gap-16">
+      <div className="lg:hidden px-4 sm:px-6 py-20 sm:py-24 flex flex-col gap-12 sm:gap-16">
         <div className="text-center">
           <div className="flex items-center gap-4 mb-6 justify-center">
             <div className="h-px bg-terracotta w-12"></div>
             <span className="text-sm font-semibold tracking-widest text-terracotta uppercase">Why Us</span>
             <div className="h-px bg-terracotta w-12"></div>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl text-sage mb-4">Why Verdana Dental</h2>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-sage mb-4">Why Verdana Dental</h2>
         </div>
         {panels.map((panel) => (
           <motion.div
