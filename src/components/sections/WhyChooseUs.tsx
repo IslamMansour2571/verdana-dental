@@ -30,7 +30,7 @@ const panels = [
     id: 3,
     title: 'Exceptional Results',
     description: 'From routine cleanings to complex smile makeovers, we are dedicated to delivering beautiful, long-lasting results you can be proud to share.',
-    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1744723856265-866d19b9cf1a?w=800&q=80',
     layout: 'center',
   },
 ];
