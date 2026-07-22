@@ -108,6 +108,10 @@ export default function Testimonials() {
           className="relative max-w-3xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) setIsPaused(false);
+          }}
         >
           <div className="relative min-h-[420px] sm:min-h-[380px] md:min-h-[340px] flex items-center justify-center px-10 sm:px-14 md:px-16">
             <AnimatePresence initial={false} custom={direction}>

@@ -72,6 +72,19 @@ export default function BookingForm() {
     }
   }, [step, isCalendarLoading]);
 
+  // Pick up a service preselected from a "Learn More" link on the Services section
+  useEffect(() => {
+    try {
+      const preselected = sessionStorage.getItem('preselectedServiceId');
+      if (preselected && SERVICES.some((s) => s.id === preselected)) {
+        setFormData((prev) => ({ ...prev, serviceId: preselected }));
+        sessionStorage.removeItem('preselectedServiceId');
+      }
+    } catch {
+      // sessionStorage unavailable — form still works, just without preselection
+    }
+  }, []);
+
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear errors when typing

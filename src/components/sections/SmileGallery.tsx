@@ -160,7 +160,22 @@ export default function SmileGallery() {
               style={{ left: `${sliderPosition}%` }}
             >
               {/* Handle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-neutral-100 text-sage transition-transform">
+              <div
+                role="slider"
+                tabIndex={0}
+                aria-label={`Before and after comparison for ${currentCase.title}`}
+                aria-orientation="horizontal"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={Math.round(sliderPosition)}
+                onKeyDown={(e) => {
+                  if (e.key === 'ArrowLeft') { e.preventDefault(); setSliderPosition((p) => Math.max(0, p - 5)); }
+                  if (e.key === 'ArrowRight') { e.preventDefault(); setSliderPosition((p) => Math.min(100, p + 5)); }
+                  if (e.key === 'Home') { e.preventDefault(); setSliderPosition(0); }
+                  if (e.key === 'End') { e.preventDefault(); setSliderPosition(100); }
+                }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-neutral-100 text-sage transition-transform pointer-events-auto cursor-ew-resize focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
+              >
                 <GripVertical className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -14,7 +15,11 @@ const hours = [
 ];
 
 export default function Contact() {
-  const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+  const [currentDay, setCurrentDay] = useState<string | null>(null);
+
+  useEffect(() => {
+    setCurrentDay(new Date().toLocaleDateString('en-US', { weekday: 'long' }));
+  }, []);
 
   return (
     <section className="bg-cream-dark py-20 sm:py-24 px-4 sm:px-6 lg:px-8">

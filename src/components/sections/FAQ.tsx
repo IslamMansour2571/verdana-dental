@@ -90,7 +90,7 @@ export default function FAQ() {
               className="border-b border-neutral-300"
             >
               <Accordion.Header className="flex">
-                <Accordion.Trigger className="group flex flex-1 items-center justify-between py-5 sm:py-6 text-base sm:text-lg font-semibold font-body text-neutral-900 transition-colors hover:text-sage [&[data-state=open]>svg]:rotate-180">
+                <Accordion.Trigger className="group flex flex-1 items-center justify-between py-5 sm:py-6 text-base sm:text-lg font-semibold font-body text-neutral-900 transition-colors hover:text-sage focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-cream rounded [&[data-state=open]>svg]:rotate-180">
                   <span className="text-left">{faq.question}</span>
                   <ChevronDown className="h-5 w-5 shrink-0 text-sage transition-transform duration-300" aria-hidden />
                 </Accordion.Trigger>

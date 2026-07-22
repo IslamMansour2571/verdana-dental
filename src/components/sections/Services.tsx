@@ -44,6 +44,19 @@ const services = [
 ];
 
 export default function Services() {
+  const handleLearnMore = (e: React.MouseEvent<HTMLAnchorElement>, serviceId: string) => {
+    e.preventDefault();
+    try {
+      sessionStorage.setItem('preselectedServiceId', serviceId);
+    } catch {
+      // sessionStorage unavailable (e.g. private browsing) — booking section still opens normally
+    }
+    const target = document.getElementById('booking');
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-20 sm:py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +93,7 @@ export default function Services() {
                   y: -6,
                   boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03)',
                 }}
-                className="group bg-white rounded-2xl border border-neutral-300 p-6 sm:p-8 flex flex-col cursor-pointer transition-all duration-300"
+                className="group bg-white rounded-2xl border border-neutral-300 p-6 sm:p-8 flex flex-col transition-all duration-300"
               >
                 <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-full flex items-center justify-center bg-cream-dark text-sage mb-5 sm:mb-6 transition-colors duration-300 group-hover:bg-sage group-hover:text-white">
                   <Icon size={24} />
@@ -92,9 +105,14 @@ export default function Services() {
                   {service.description}
                 </p>
                 <div className="mt-auto">
-                  <div className="text-terracotta font-body font-medium flex items-center gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 text-sm sm:text-base">
+                  <a
+                    href="#booking"
+                    onClick={(e) => handleLearnMore(e, service.id)}
+                    aria-label={`Book an appointment for ${service.title}`}
+                    className="text-terracotta font-body font-medium inline-flex items-center gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0 focus:opacity-100 focus:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded text-sm sm:text-base"
+                  >
                     Learn More <span aria-hidden="true">&rarr;</span>
-                  </div>
+                  </a>
                 </div>
               </motion.div>
             );
