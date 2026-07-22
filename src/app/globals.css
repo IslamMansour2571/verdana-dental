@@ -53,6 +53,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Keeps any anchor jump (footer links, browser back/forward, shared #section
+   URLs) from landing a section underneath the fixed navbar, matching the
+   offset already used by the navbar's own smooth-scroll handler. */
+[id] {
+  scroll-margin-top: 84px;
+}
+
+@media (min-width: 768px) {
+  [id] {
+    scroll-margin-top: 100px;
+  }
+}
+
 body {
   background-color: var(--color-cream);
   color: var(--color-neutral-900);
@@ -113,6 +126,10 @@ body {
 
 /* ─── Custom Cursor (desktop only) ─── */
 @media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
   .custom-cursor-dot {
     position: fixed;
     top: 0;
