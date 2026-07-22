@@ -133,21 +133,8 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Small Floating Image — smiling patient after dental treatment */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="absolute -bottom-6 sm:-bottom-8 right-2 sm:right-0 md:-right-3 w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl z-20"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&q=80"
-                alt="Smiling woman showing her perfect teeth after dental treatment"
-                fill
-                sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, 160px"
-                className="object-cover"
-              />
-            </motion.div>
+
+
           </motion.div>
 
         </div>

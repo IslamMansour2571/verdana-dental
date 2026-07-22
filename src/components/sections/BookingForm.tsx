@@ -212,7 +212,7 @@ export default function BookingForm() {
           <p className="text-neutral-600 font-body text-sm sm:text-base">Schedule your visit with our expert dental team today.</p>
         </div>
 
-        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden p-4 sm:p-6 md:p-12 min-h-[500px] sm:min-h-[600px] flex flex-col relative">
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden p-5 sm:p-8 md:p-12 min-h-[520px] sm:min-h-[600px] flex flex-col relative">
           
           {/* Progress Indicator */}
           {!isSuccess && (
@@ -311,15 +311,15 @@ export default function BookingForm() {
                             key={service.id}
                             onClick={() => updateFormData('serviceId', service.id)}
                             className={`
-                              relative flex flex-col items-center justify-center p-6 rounded-2xl border-2 transition-all duration-200 text-center
+                              relative flex flex-col items-center justify-center p-5 sm:p-6 rounded-2xl border-2 transition-all duration-200 text-center
                               ${formData.serviceId === service.id 
                                 ? 'border-terracotta bg-terracotta/5 shadow-md' 
                                 : 'border-neutral-200 hover:border-terracotta/40 hover:bg-neutral-50'
                               }
                             `}
                           >
-                            <service.icon className={`w-8 h-8 mb-4 ${formData.serviceId === service.id ? 'text-terracotta' : 'text-sage'}`} />
-                            <span className={`font-medium ${formData.serviceId === service.id ? 'text-sage' : 'text-neutral-700'}`}>
+                            <service.icon className={`w-7 h-7 sm:w-8 sm:h-8 mb-3 ${formData.serviceId === service.id ? 'text-terracotta' : 'text-sage'}`} />
+                            <span className={`font-medium text-sm ${formData.serviceId === service.id ? 'text-sage' : 'text-neutral-700'}`}>
                               {service.name}
                             </span>
                             {formData.serviceId === service.id && (
@@ -336,7 +336,7 @@ export default function BookingForm() {
                           onClick={nextStep}
                           disabled={!formData.serviceId}
                           className={`
-                            px-8 py-3 rounded-full font-medium transition-all duration-300
+                            px-8 py-3.5 rounded-full font-semibold transition-all duration-300 text-sm
                             ${formData.serviceId 
                               ? 'bg-terracotta hover:bg-terracotta-hover text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5' 
                               : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
@@ -547,7 +547,7 @@ export default function BookingForm() {
                         </button>
                         <button
                           onClick={nextStep}
-                          className="px-8 py-3 bg-terracotta hover:bg-terracotta-hover text-white rounded-full font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
+                          className="px-8 py-3.5 bg-terracotta hover:bg-terracotta-hover text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 text-sm"
                         >
                           Confirm Booking
                           <Check className="w-4 h-4" />

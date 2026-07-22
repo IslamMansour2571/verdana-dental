@@ -94,12 +94,12 @@ export default function Testimonials() {
   }, [isPaused, currentIndex, paginate]);
 
   return (
-    <section className="py-20 sm:py-24 bg-cream-dark relative overflow-hidden" id="testimonials">
+    <section className="py-20 sm:py-24 bg-cream relative overflow-hidden" id="testimonials">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-          <div className="w-12 h-1 bg-terracotta mb-6"></div>
+          <div className="w-12 h-1 bg-terracotta mb-6 rounded-full"></div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-sage mb-4">What Our Patients Say</h2>
-          <p className="font-body text-neutral-600 max-w-2xl text-base sm:text-lg px-4 sm:px-0">
+          <p className="font-body text-neutral-600 max-w-2xl text-base sm:text-lg px-4 sm:px-0 leading-relaxed">
             Don&apos;t just take our word for it. Read about the experiences of our valued patients and the life-changing results they&apos;ve achieved.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function Testimonials() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="relative min-h-[420px] sm:min-h-[380px] md:min-h-[340px] flex items-center justify-center px-8 sm:px-14 md:px-16">
+          <div className="relative min-h-[420px] sm:min-h-[380px] md:min-h-[340px] flex items-center justify-center px-10 sm:px-14 md:px-16">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -125,7 +125,7 @@ export default function Testimonials() {
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={1}
-                onDragEnd={(e, { offset, velocity }) => {
+                onDragEnd={(_e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
                   if (swipe < -swipeConfidenceThreshold) {
                     paginate(1);
@@ -138,28 +138,28 @@ export default function Testimonials() {
                 <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-md flex flex-col items-center text-center relative">
                   <span className="text-5xl sm:text-6xl text-terracotta opacity-20 absolute top-3 sm:top-4 left-4 sm:left-6 font-display select-none">&ldquo;</span>
                   
-                  <div className="flex space-x-1 mb-4 sm:mb-6">
+                  <div className="flex space-x-1 mb-5">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-terracotta text-terracotta" />
                     ))}
                   </div>
                   
-                  <p className="text-base sm:text-lg md:text-xl text-neutral-900 font-body mb-6 sm:mb-8 italic relative z-10 leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl text-neutral-700 font-body mb-6 sm:mb-8 italic relative z-10 leading-relaxed">
                     &quot;{testimonials[currentIndex].quote}&quot;
                   </p>
                   
                   <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden mb-3 sm:mb-4 relative ring-2 ring-cream-dark">
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden mb-3 sm:mb-4 relative ring-2 ring-cream-dark">
                       <Image 
                         src={testimonials[currentIndex].photo} 
-                        alt={testimonials[currentIndex].name}
+                        alt={`${testimonials[currentIndex].name} - ${testimonials[currentIndex].procedure} patient`}
                         fill
                         className="object-cover"
-                        sizes="64px"
+                        sizes="72px"
                       />
                     </div>
                     <h4 className="font-display font-bold text-lg sm:text-xl text-sage">{testimonials[currentIndex].name}</h4>
-                    <p className="text-xs sm:text-sm text-terracotta font-medium">{testimonials[currentIndex].procedure}</p>
+                    <p className="text-xs sm:text-sm text-terracotta font-medium mt-1">{testimonials[currentIndex].procedure}</p>
                   </div>
                 </div>
               </motion.div>
@@ -167,23 +167,23 @@ export default function Testimonials() {
           </div>
 
           <button 
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-md text-sage hover:text-terracotta hover:scale-110 transition-all z-20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-md text-sage hover:text-terracotta hover:scale-110 transition-all z-20 border border-neutral-100"
             onClick={() => paginate(-1)}
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           
           <button 
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-md text-sage hover:text-terracotta hover:scale-110 transition-all z-20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-md text-sage hover:text-terracotta hover:scale-110 transition-all z-20 border border-neutral-100"
             onClick={() => paginate(1)}
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
-        <div className="flex justify-center space-x-2 mt-6 sm:mt-8">
+        <div className="flex justify-center space-x-2.5 mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -191,7 +191,7 @@ export default function Testimonials() {
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);
               }}
-              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all ${
+              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex ? 'bg-terracotta scale-125' : 'bg-neutral-300 hover:bg-neutral-400'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}

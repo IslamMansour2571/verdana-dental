@@ -34,7 +34,7 @@ export default function Navbar() {
     const element = document.getElementById(targetId);
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 80, // adjust for navbar height
+        top: element.offsetTop - 80,
         behavior: 'smooth'
       });
     } else if (href === '#home') {
@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          isScrolled ? 'bg-cream/95 backdrop-blur-md shadow-sm h-16 md:h-20 py-0' : 'bg-transparent h-20 md:h-24'
+          isScrolled ? 'bg-cream/95 backdrop-blur-md shadow-sm h-16 md:h-18 py-0' : 'bg-transparent h-20 md:h-24'
         } flex items-center`}
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center w-full">
@@ -67,7 +67,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleScrollTo(e, link.href)}
-                className="group relative font-body text-sm font-medium text-neutral-900 transition-colors hover:text-sage"
+                className="group relative font-body text-sm font-medium text-neutral-700 transition-colors hover:text-sage"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-sage transition-all duration-300 ease-out group-hover:w-full"></span>
@@ -79,7 +79,7 @@ export default function Navbar() {
             <a
               href="#booking"
               onClick={(e) => handleScrollTo(e, '#booking')}
-              className="bg-terracotta hover:bg-terracotta-hover text-white px-6 py-2.5 rounded-full font-body text-sm font-semibold transition-all duration-300 shadow-sm text-center no-underline cursor-pointer"
+              className="bg-terracotta hover:bg-terracotta-hover text-white px-7 py-3 rounded-full font-body text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-center no-underline cursor-pointer"
             >
               Book Appointment
             </a>
@@ -87,11 +87,11 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden z-50 text-neutral-900 p-2 focus:outline-none"
+            className="lg:hidden z-50 text-sage p-2 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} className="text-sage" /> : <Menu size={24} className={isScrolled ? "text-sage" : "text-sage"} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
@@ -103,7 +103,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="fixed inset-0 z-40 bg-cream-dark flex flex-col pt-24 px-6 pb-8 h-screen"
           >
             <nav className="flex flex-col gap-6 mt-8">

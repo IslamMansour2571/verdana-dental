@@ -24,7 +24,7 @@ export default function Footer() {
                 Verdana
               </span>
             </Link>
-            <p className="text-cream/70 text-sm leading-relaxed max-w-sm">
+            <p className="text-cream/80 text-sm leading-relaxed max-w-sm">
               Premium dental care in a relaxing environment. We combine advanced technology with a gentle touch to bring you your best smile.
             </p>
             <div className="flex items-center gap-4 mt-2">
@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {['General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Dental Implants', 'Teeth Whitening', 'Pediatric Dentistry'].map((service) => (
                 <li key={service}>
-                  <Link href="#services" className="text-cream/70 hover:text-white hover:pl-2 transition-all duration-300 text-sm">
+                  <Link href="#services" className="text-cream/80 hover:text-white hover:pl-2 transition-all duration-300 text-sm">
                     {service}
                   </Link>
                 </li>
@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {['About Us', 'Our Team', 'Patient Gallery', 'FAQ', 'Dental Blog', 'Careers'].map((link) => (
                 <li key={link}>
-                  <Link href="#" className="text-cream/70 hover:text-white hover:pl-2 transition-all duration-300 text-sm">
+                  <Link href="#" className="text-cream/80 hover:text-white hover:pl-2 transition-all duration-300 text-sm">
                     {link}
                   </Link>
                 </li>
@@ -67,19 +67,19 @@ export default function Footer() {
           <div>
             <h3 className="font-display text-xl mb-6 text-cream">Contact Us</h3>
             <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3 text-sm text-cream/70">
+              <li className="flex items-start gap-3 text-sm text-cream/80">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-terracotta" />
                 <span>245 Park Avenue, Suite 1200<br />New York, NY 10167</span>
               </li>
-              <li className="flex items-center gap-3 text-sm text-cream/70">
+              <li className="flex items-center gap-3 text-sm text-cream/80">
                 <Phone size={18} className="shrink-0 text-terracotta" />
-                <a href="tel:2125550147" className="text-cream/70 hover:text-white transition-colors">(212) 555-0147</a>
+                <a href="tel:2125550147" className="text-cream/80 hover:text-white transition-colors">(212) 555-0147</a>
               </li>
-              <li className="flex items-center gap-3 text-sm text-cream/70">
+              <li className="flex items-center gap-3 text-sm text-cream/80">
                 <Mail size={18} className="shrink-0 text-terracotta" />
-                <a href="mailto:hello@verdanadental.com" className="text-cream/70 hover:text-white transition-colors">hello@verdanadental.com</a>
+                <a href="mailto:hello@verdanadental.com" className="text-cream/80 hover:text-white transition-colors">hello@verdanadental.com</a>
               </li>
-              <li className="flex items-start gap-3 text-sm text-cream/70 mt-2">
+              <li className="flex items-start gap-3 text-sm text-cream/80 mt-2">
                 <Clock size={18} className="mt-0.5 shrink-0 text-terracotta" />
                 <span>Mon-Fri: 8:00 AM - 6:00 PM<br />Sat: 9:00 AM - 3:00 PM</span>
               </li>
