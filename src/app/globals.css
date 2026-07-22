@@ -1,0 +1,281 @@
+@import "tailwindcss";
+@source "src/components/**/*.tsx";
+@source "src/app/**/*.tsx";
+@source "src/lib/**/*.ts";
+@source "../components/**/*.tsx";
+@source "../app/**/*.tsx";
+@source "../lib/**/*.ts";
+
+/* ─── Design Tokens ─── */
+@theme {
+  /* Colors */
+  --color-cream: #FAF7F2;
+  --color-cream-dark: #F0EBE3;
+  --color-sage: #2D4A3E;
+  --color-sage-light: #3D6B5A;
+  --color-sage-muted: #4A7A66;
+  --color-terracotta: #C4785B;
+  --color-terracotta-hover: #B5694D;
+  --color-terracotta-light: #D4967E;
+  --color-neutral-900: #1A1A1A;
+  --color-neutral-700: #3D3D3D;
+  --color-neutral-600: #6B6B6B;
+  --color-neutral-400: #9B9B9B;
+  --color-neutral-300: #E5E0D8;
+  --color-neutral-200: #EDE9E2;
+  --color-neutral-100: #F5F2ED;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+  /* Spacing (8pt system — Tailwind defaults align well) */
+  --spacing-section: 7rem;
+  --spacing-section-sm: 4rem;
+}
+
+/* ─── Base Styles ─── */
+:root {
+  --cursor-size: 8px;
+  --cursor-trail-size: 36px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-neutral-900);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── Typography Scale ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-sage);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); }
+h2 { font-size: clamp(2rem, 3vw + 0.5rem, 3.25rem); }
+h3 { font-size: clamp(1.5rem, 2vw + 0.25rem, 2rem); }
+h4 { font-size: clamp(1.125rem, 1.5vw, 1.5rem); }
+
+p {
+  font-family: var(--font-body);
+  color: var(--color-neutral-700);
+  line-height: 1.7;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-sage);
+  color: var(--color-cream);
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
+
+/* ─── Custom Cursor (desktop only) ─── */
+@media (pointer: fine) {
+  .custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background-color: var(--color-sage);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.15s ease-out;
+  }
+
+  .custom-cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-trail-size);
+    height: var(--cursor-trail-size);
+    border: 1.5px solid var(--color-sage-light);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  }
+
+  .custom-cursor-hover .custom-cursor-trail {
+    width: 56px;
+    height: 56px;
+    border-color: var(--color-terracotta);
+  }
+
+  .custom-cursor-hover .custom-cursor-dot {
+    transform: scale(2);
+    background-color: var(--color-terracotta);
+  }
+}
+
+/* ─── Utility Classes ─── */
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: var(--spacing-section-sm);
+    padding-bottom: var(--spacing-section-sm);
+  }
+}
+
+.container-custom {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* ─── Button Base ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: var(--color-terracotta);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196, 120, 91, 0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: transparent;
+  color: var(--color-sage);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  border: 1.5px solid var(--color-sage);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-sage);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(45, 74, 62, 0.2);
+}
+
+/* ─── Lenis ─── */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─── Image placeholder shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.image-placeholder {
+  background: linear-gradient(90deg, var(--color-neutral-200) 25%, var(--color-neutral-100) 50%, var(--color-neutral-200) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ─── Layout Alignment Fixes (Tailwind v4 compilation fallbacks) ─── */
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.max-w-7xl {
+  max-width: 80rem !important;
+}
+.max-w-6xl {
+  max-width: 72rem !important;
+}
+.max-w-5xl {
+  max-width: 64rem !important;
+}
+.max-w-4xl {
+  max-width: 56rem !important;
+}
+.max-w-3xl {
+  max-width: 48rem !important;
+}
+.w-full {
+  width: 100% !important;
+}
