@@ -79,11 +79,11 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto"
             >
-              <a href="#booking" className="flex items-center justify-center gap-2.5 bg-terracotta hover:bg-terracotta-hover text-white px-8 py-4 rounded-full font-body font-semibold transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-lg text-base">
+              <a href="#booking" className="flex items-center justify-center gap-2.5 bg-terracotta hover:bg-terracotta-hover text-white px-8 py-4 rounded-full font-body font-semibold transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-lg text-base sm:min-w-[210px]">
                 Book Your Visit
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a href="#services" className="flex items-center justify-center gap-2 bg-transparent border-2 border-sage text-sage hover:bg-sage hover:text-white px-8 py-4 rounded-full font-body font-semibold transition-all duration-300 text-base">
+              <a href="#services" className="flex items-center justify-center gap-2 bg-transparent border-2 border-sage text-sage hover:bg-sage hover:text-white px-8 py-4 rounded-full font-body font-semibold transition-all duration-300 text-base sm:min-w-[210px]">
                 Explore Services
               </a>
             </motion.div>
