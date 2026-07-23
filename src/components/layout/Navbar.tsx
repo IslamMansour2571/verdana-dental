@@ -79,7 +79,7 @@ export default function Navbar() {
             <a
               href="#booking"
               onClick={(e) => handleScrollTo(e, '#booking')}
-              className="bg-terracotta hover:bg-terracotta-hover text-white px-7 py-3 rounded-full font-body text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-center no-underline cursor-pointer"
+              className="bg-terracotta hover:bg-terracotta-hover text-white px-7 py-3 rounded-full font-body text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-center no-underline cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
             >
               Book Appointment
             </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden z-50 text-sage p-2 focus:outline-none"
+            className="lg:hidden z-50 text-sage p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
