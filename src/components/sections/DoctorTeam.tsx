@@ -75,8 +75,8 @@ export default function DoctorTeam() {
               key={doctor.id}
               variants={fadeUp}
               className={`bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group ${
-                index === 1 ? 'md:-translate-y-4 lg:-translate-y-6' : ''
-              } ${index === 2 ? 'sm:col-span-2 sm:max-w-sm sm:mx-auto md:col-span-1 md:max-w-none' : ''}`}
+                index === 2 ? 'sm:col-span-2 sm:max-w-sm sm:mx-auto md:col-span-1 md:max-w-none' : ''
+              }`}
             >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
